@@ -25,16 +25,16 @@ public class CompanyDataController {
     // odsyła do formularza z dodaniem firmy
     @GetMapping("/add")
     public String add(Model model) {
-        model.addAttribute("company", new CompanyData());
+        model.addAttribute("newCompany", new CompanyData());
         return "/company/add";
     }
 
-    //odpowiedź z formularza zapisanie do bazy danych nową firmę, powrót do formularza
+    //odpowiedź z formularza, zapisanie do bazy danych nową firmę, powrót do home
     @PostMapping("/add")
-    public String add(@Valid @ModelAttribute CompanyData companyData, BindingResult bindingResult) {
+    public String add(@Valid @ModelAttribute("newCompany") CompanyData newCompany, BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
             return "/company/add";
-        } companyDataServiceImpl.saveCompany(companyData);
+        } companyDataServiceImpl.saveCompany(newCompany);
         return "redirect:/home";
     }
 }

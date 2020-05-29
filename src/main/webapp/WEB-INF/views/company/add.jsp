@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Dodaj nową firmę</h1>
-<form:form modelAttribute="company" method="post" action="/company/add">
+<form:form modelAttribute="newCompany" method="post" action="/company/add">
     <form:hidden path="id"/>
     <div><label>NIP: <form:input path="companyNIP"/></label></div>
     <form:errors path="companyNIP"/>
