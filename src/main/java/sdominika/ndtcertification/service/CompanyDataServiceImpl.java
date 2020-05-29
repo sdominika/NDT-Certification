@@ -22,7 +22,7 @@ public class CompanyDataServiceImpl implements CompanyDataService {
 
 
     @Override
-    public List<CompanyData> getAll() {
+    public List<CompanyData> showAll() {
         return this.companyDataRepository.findAll();
     }
 
@@ -41,4 +41,6 @@ public class CompanyDataServiceImpl implements CompanyDataService {
         CompanyData companyData = findById(id);
         this.companyDataRepository.delete(companyData);
     }
+
+
 }

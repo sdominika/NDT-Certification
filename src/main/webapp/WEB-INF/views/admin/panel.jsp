@@ -6,14 +6,7 @@
     <title>Admin panel</title>
 </head>
 <body>
-<nav>
-    <sec:authorize access="isAuthenticated()">
-        <form action="<c:url value="/logout"/>" method="post">
-            <input type="submit" value="Wyloguj">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        </form>
-    </sec:authorize>
-</nav>
+
 <table>
     <tr>
         <th>First name</th>
@@ -22,7 +15,7 @@
         <th>Roles</th>
         <th>Actions</th>
     </tr>
-<c:forEach items="${users}" var="user">
+    <c:forEach items="${users}" var="user">
     <tr>
         <td>${user.firstName}</td>
         <td>${user.lastName}</td>
@@ -31,8 +24,17 @@
         <td><a href="/admin/edit/${user.id}">Edit</a></td>
         <td><a href="/admin/delete/${user.id}">Delete</a></td>
     </tr>
-</c:forEach>
-<p><a href="/admin/addUser">Add user</a></p>
-<p><a href="/admin/addAdmin">Add admin</a></p>
+    </c:forEach>
+    <p><a href="/admin/addUser">Add user</a></p>
+    <p><a href="/admin/addAdmin">Add admin</a></p><br>
+
+    <nav>
+        <sec:authorize access="isAuthenticated()">
+            <form action="<c:url value="/logout"/>" method="post">
+                <input type="submit" value="Wyloguj">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            </form>
+        </sec:authorize>
+    </nav>
 </body>
 </html>

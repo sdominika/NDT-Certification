@@ -8,7 +8,7 @@
 <form:form method="post" action="/admin/edit" modelAttribute="user">
     <form:hidden path="id"/>
     <form:hidden path="username"/>
-    <form:hidden path="password"/>
+<%--    <form:hidden path="password"/>--%>
     <div>
         <label>Enter Your name: <form:input path="firstName"/></label>
         <form:errors path="firstName"/>
@@ -18,8 +18,8 @@
         <form:errors path="lastName"/>
     </div>
     <div>
-        <label>Enter Your address: <form:input path="address"/></label>
-        <form:errors path="address"/>
+        <label>Enter Your address: <form:input path="email"/></label>
+        <form:errors path="email"/>
     </div>
     <input type="submit" value="Confirm">
 </form:form>

@@ -36,7 +36,7 @@ public class AdminController {
     @GetMapping("/addUser")
     public String addUser(Model model) {
         model.addAttribute("user", new User());
-        return "addUser";
+        return "/admin/addUser";
     }
 
     @ModelAttribute(name = "roles")
@@ -51,13 +51,13 @@ public class AdminController {
     }
 
     @GetMapping("/edit/{id}")
-    public String edit(@PathVariable long id, Model model) {
+    public String editUser(@PathVariable long id, Model model) {
         model.addAttribute("user", userService.findById(id));
-        return "/editUser";
+        return "/admin/editUser";
     }
 
     @PostMapping("/edit")
-    public String edit(@ModelAttribute User user) {
+    public String editUser(@ModelAttribute User user) {
         userService.updateUser(user);
         return "redirect:/admin/panel";
     }
