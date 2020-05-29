@@ -6,4 +6,5 @@ import sdominika.ndtcertification.entity.CompanyData;
 
 @Repository
 public interface CompanyDataRepository extends JpaRepository <CompanyData, Long> {
+    void findOneById(Long id);
 }
