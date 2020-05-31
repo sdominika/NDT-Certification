@@ -20,5 +20,6 @@
     <form:errors path="companyAddressCity"/><br>
     <input type="submit" value="Save">
 </form:form>
+<p><a href="/company/list">Show company list</a></p>
 </body>
 </html>

@@ -4,10 +4,20 @@
 <style type="text/css">
     table * {
         border: 1px solid black;
+        border-radius: 2px;
+        caption-side: bottom;
+        text-align: center;
+        background-color: #ccb8d3
+    }
+    p * {
+        border: 1px solid black;
         border-radius: 5px;
         caption-side: bottom;
         text-align: center;
-        background-color: lightgray
+        background-color: #282c34;
+        color: white;
+        text-decoration: none;
+        padding: 5px;
     }
 </style>
 <head>
@@ -27,17 +37,25 @@
             <tr>
                 <td>${companyData.companyNIP}</td>
                 <td>${companyData.companyName}</td>
-                <td>${companyData.companyAddressStreet}}</td>
-                <td>${companyData.companyAddressPostCode}}</td>
-                <td>${companyData.companyAddressCity}}</td>
+                <td>${companyData.companyAddressStreet}</td>
+                <td>${companyData.companyAddressPostCode}</td>
+                <td>${companyData.companyAddressCity}</td>
                 <td><a href="/company/delete/${companyData.id}">Usuń</a>
                     <a href="/company/edit/${companyData.id}">Edytuj</a></td>
             </tr>
         </c:forEach>
 </table>
+<p><a href="/company/add">ADD</a></p>
+<p><a href="/home">HOME PAGE</a></p>
 
-<a href="/company/add">Add</a>
-<a href="/home">Home Page</a>
+<nav>
+    <sec:authorize access="isAuthenticated()">
+        <form action="<c:url value="/logout"/>" method="post">
+            <input type="submit" value="Wyloguj">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        </form>
+    </sec:authorize>
+</nav>
 
 </body>
 </html>
