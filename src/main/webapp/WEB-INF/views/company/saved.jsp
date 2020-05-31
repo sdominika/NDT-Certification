@@ -8,6 +8,7 @@
 <body>
     <h1>Company saved</h1>
     <p><a href="/company/add">Add new company</a></p>
+    <p><a href="/company/list">Show company list</a></p>
     <nav>
         <sec:authorize access="isAuthenticated()">
             <form action="<c:url value="/logout"/>" method="post">

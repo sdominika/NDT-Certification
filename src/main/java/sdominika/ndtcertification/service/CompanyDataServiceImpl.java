@@ -15,9 +15,10 @@ public class CompanyDataServiceImpl implements CompanyDataService {
     public CompanyDataServiceImpl(CompanyDataRepository companyDataRepository) {
         this.companyDataRepository = companyDataRepository;
     }
-
-    public void update(CompanyData companyData, Long id) {
-        this.companyDataRepository.findOneById(id);
+    @Override
+    public void update(CompanyData companyData) {
+        companyDataRepository.save(companyData);
+        //this.companyDataRepository.findOneById(id);
     }
 
 
@@ -41,6 +42,7 @@ public class CompanyDataServiceImpl implements CompanyDataService {
         CompanyData companyData = findById(id);
         this.companyDataRepository.delete(companyData);
     }
+
 
 
 }

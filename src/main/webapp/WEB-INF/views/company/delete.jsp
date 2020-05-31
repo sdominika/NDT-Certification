@@ -11,6 +11,6 @@
     <title>Company data delete</title>
 </head>
 <body>
-Company data delete
+Company data deleted
 </body>
 </html>
