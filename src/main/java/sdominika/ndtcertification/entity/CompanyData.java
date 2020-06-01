@@ -5,9 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.pl.NIP;
+import sdominika.ndtcertification.validation.validator.NIPAlreadyExists;
+
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,8 +25,9 @@ public class CompanyData {
     private Long id;
     @Column(unique = true)
 //    @NotNull
+    @NIPAlreadyExists
     @NIP
-    private String companyNIP;
+      private String companyNIP;
 //    @NotNull
     private String companyName;
 //    @NotNull
