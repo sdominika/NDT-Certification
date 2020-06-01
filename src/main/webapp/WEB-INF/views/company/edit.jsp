@@ -1,12 +1,19 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: skute
+  Date: 29.05.2020
+  Time: 14:38
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Company Data Form</title>
+    <title>Company data edition</title>
 </head>
 <body>
-<h1>Dodaj nową firmę</h1>
-<form:form modelAttribute="newCompany" method="post" action="/company/add">
+<h1>Company data edition</h1>
+<form:form method="post" modelAttribute="companyData" action="/company/edit">
     <form:hidden path="id"/>
     <div><label>NIP: <form:input path="companyNIP"/></label></div>
     <form:errors path="companyNIP"/>
@@ -18,8 +25,12 @@
     <form:errors path="companyAddressPostCode"/>
     <div><label>Miejscowość: <form:input path="companyAddressCity"/></label></div>
     <form:errors path="companyAddressCity"/><br>
-    <input type="submit" value="Save">
+    <input type="submit" value="Confirm">
 </form:form>
-<p><a href="/company/list">Show company list</a></p>
+<div>
+    Home page-
+    <a href="/home"> home page </a>
+</div>
+
 </body>
 </html>

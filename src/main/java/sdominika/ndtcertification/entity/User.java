@@ -30,5 +30,12 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Role> roles;
+    private String firstName;
+    private String lastName;
+    private String email;
 
+    @PrePersist
+    public void prePersist() {
+        this.email = username;
+    }
 }
