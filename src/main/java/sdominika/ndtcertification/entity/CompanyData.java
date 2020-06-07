@@ -9,6 +9,7 @@ import sdominika.ndtcertification.validation.validator.NIPAlreadyExists;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -24,17 +25,17 @@ public class CompanyData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
-//    @NotNull
+    @NotNull
     @NIPAlreadyExists
     @NIP
       private String companyNIP;
-//    @NotNull
+    @NotNull
     private String companyName;
-//    @NotNull
+    @NotNull
     private String companyAddressStreet;
-//    @NotNull
+    @NotNull
     private String companyAddressPostCode;
-//    @NotNull
+    @NotNull
     private String companyAddressCity;
     @OneToMany (mappedBy = "companyData")
     private Set<CompanyContactData> companyContactData = new HashSet<>();

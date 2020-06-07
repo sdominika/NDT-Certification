@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -21,6 +22,7 @@ public class CompanyContactData {
     @NotNull
     private String CompanyContactName;
     @NotNull
+    @Email
     private String CompanyContactEmail;
     @NotNull
     private String CompanyContactPhoneNumber;
