@@ -7,7 +7,9 @@ import java.util.List;
 public interface CompanyDataService {
     List<CompanyData> showAll();
 
-    public CompanyData findById(long id);
+    CompanyData findById(long id);
+
+    CompanyData findByNIP(String nip);
 
     void saveCompany(CompanyData companyData);
 

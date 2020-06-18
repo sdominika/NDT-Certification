@@ -20,6 +20,6 @@ public class NIPAlreadyExistsValidator implements ConstraintValidator<NIPAlready
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext constraintValidatorContext) {
-        return companyDataRepository.findAllByCompanyNIP(value).size() == 0;
+        return !companyDataRepository.findOneByCompanyNIP(value).isPresent();
     }
 }

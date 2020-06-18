@@ -8,12 +8,13 @@ import org.springframework.stereotype.Repository;
 import sdominika.ndtcertification.entity.CompanyData;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CompanyDataRepository extends JpaRepository <CompanyData, Long> {
     void findOneById(Long id);
 
-//    @Query("Select cd From CompanyData cd  join cd.companyContactData dt Where NIP = :nip")
+    //    @Query("Select cd From CompanyData cd  join cd.companyContactData dt Where NIP = :nip")
 //    List<CompanyData> findAllByNIP(@Param("nip") String NIP);
-    List<CompanyData> findAllByCompanyNIP( String NIP);
+    Optional<CompanyData> findOneByCompanyNIP(String companyNIP);
 }

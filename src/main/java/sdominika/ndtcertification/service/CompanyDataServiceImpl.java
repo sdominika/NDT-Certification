@@ -33,6 +33,11 @@ public class CompanyDataServiceImpl implements CompanyDataService {
     }
 
     @Override
+    public CompanyData findByNIP(String nip) {
+        return companyDataRepository.findOneByCompanyNIP(nip).orElse(null);
+    }
+
+    @Override
     public void saveCompany(CompanyData companyData) {
         this.companyDataRepository.save(companyData);
     }

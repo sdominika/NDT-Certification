@@ -1,6 +1,7 @@
 package sdominika.ndtcertification.controller;
 
 
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -71,17 +72,15 @@ public class CompanyDataController {
         return "/company/showAll";
     }
 
-//    @PostMapping("/formEdit")
-//    public String update(@ModelAttribute CompanyData companyData, BindingResult bindingResult) {
-//        if (bindingResult.hasErrors()) {
-//            return "company/edit";
-//        }
-//        try {
-//            this.companyDataService.update(companyData);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return "redirect:/home";
-//    }
+    @GetMapping("/findByNIP")
+    public String getListByNIPForm(String nip, Model model) {
+        return "/company/findByNIP";
+    }
+
+    @RequestMapping(value = "/findByNIP", method = RequestMethod.POST)
+    public String getListByNIP(@RequestParam String nip, Model model) {
+        model.addAttribute("company", companyDataService.findByNIP(nip));
+        return "/company/findByNIP";
+    }
 }
 

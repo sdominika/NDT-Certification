@@ -3,6 +3,7 @@ package sdominika.ndtcertification.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -25,17 +26,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/about").authenticated()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/company/**").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/contact/**").hasAnyRole("USER", "ADMIN")
+//                .antMatchers("/").permitAll()
+//                .antMatchers("/about").authenticated()
+//                .antMatchers("/admin/**").hasRole("ADMIN")
+//                .antMatchers("/company/**").hasAnyRole("USER", "ADMIN")
+//                .antMatchers(HttpMethod.POST,"/company/**").hasAnyRole("USER", "ADMIN")
+//                .antMatchers("/contact/**").hasAnyRole("USER", "ADMIN")
+//
+//
+//                .and().formLogin()
+//                .loginPage("/login")
+//                .and().logout().logoutSuccessUrl("/")
+//                .permitAll()
 
-
-                .and().formLogin()
-                .loginPage("/login")
-                .and().logout().logoutSuccessUrl("/")
-                .permitAll()
                 .and().exceptionHandling().accessDeniedPage("/403");
     }
 
